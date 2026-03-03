@@ -28,10 +28,12 @@ jobs:
       - name: Setup Node.js for npm publish
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          # npm trusted publishing requires Node 22.14.0+.
+          node-version: "24"
           registry-url: "https://registry.npmjs.org"
 
       - name: Publish to npm
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # With npm trusted publishing configured, npm exchanges the GitHub OIDC
+        # token for a short-lived publish credential. No long-lived NPM token
+        # or manual OTP is required.
+        run: npm publish --access public
