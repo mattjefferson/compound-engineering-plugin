@@ -14,7 +14,7 @@ This workflow produces a durable implementation plan. It does **not** implement 
 
 ## Interaction Method
 
-Use the platform's interactive question mechanism when available. Otherwise, present numbered options in chat and wait for the user's reply before proceeding.
+Use the platform's question tool when available. When asking the user a question, prefer the platform's blocking question tool if one exists (`AskUserQuestion` in Claude Code, `request_user_input` in Codex, `ask_user` in Gemini). Otherwise, present numbered options in chat and wait for the user's reply before proceeding.
 
 Ask one question at a time. Prefer a concise single-select choice when natural options exist.
 
@@ -69,7 +69,7 @@ Before asking planning questions, search `docs/brainstorms/` for files matching 
 - It was created within the last 30 days (use judgment to override if the document is clearly still relevant or clearly stale)
 - It appears to cover the same user problem or scope
 
-If multiple source documents match, ask which one to use before proceeding.
+If multiple source documents match, ask which one to use using the platform's blocking question tool when available (see Interaction Method). Otherwise, present numbered options in chat and wait for the user's reply before proceeding.
 
 #### 0.3 Use the Source Document as Primary Input
 
@@ -118,7 +118,7 @@ If the origin document contains `Resolve Before Planning` or similar blocking qu
 
 If true product blockers remain:
 - Surface them clearly
-- Ask the user whether to:
+- Ask the user, using the platform's blocking question tool when available (see Interaction Method), whether to:
   1. Resume `ce:brainstorm` to resolve them
   2. Convert them into explicit assumptions or decisions and continue
 - Do not continue planning while true blockers remain unresolved
@@ -214,7 +214,7 @@ For each question, decide whether it should be:
 - **Resolved during planning** - the answer is knowable from repo context, documentation, or user choice
 - **Deferred to implementation** - the answer depends on code changes, runtime behavior, or execution-time discovery
 
-Ask the user only when the answer materially affects architecture, scope, sequencing, or risk and cannot be responsibly inferred.
+Ask the user only when the answer materially affects architecture, scope, sequencing, or risk and cannot be responsibly inferred. Use the platform's blocking question tool when available (see Interaction Method).
 
 **Do not** run tests, build the app, or probe runtime behavior in this phase. The goal is a strong plan, not partial execution.
 
@@ -506,7 +506,7 @@ Plan written to docs/plans/[filename]
 
 #### 5.3 Post-Generation Options
 
-After writing the plan file, present the options using the platform's interactive question mechanism when available. Otherwise present numbered options in chat.
+After writing the plan file, present the options using the platform's blocking question tool when available (see Interaction Method). Otherwise present numbered options in chat and wait for the user's reply before proceeding.
 
 **Question:** "Plan ready at `docs/plans/YYYY-MM-DD-NNN-<type>-<name>-plan.md`. What would you like to do next?"
 
@@ -558,7 +558,7 @@ When the user selects "Create Issue", detect their project tracker from CLAUDE.m
    ```
 
 4. If no tracker is configured:
-   - Ask which tracker they use
+   - Ask which tracker they use using the platform's blocking question tool when available (see Interaction Method)
    - Suggest adding the tracker to CLAUDE.md for future runs
 
 After issue creation:
