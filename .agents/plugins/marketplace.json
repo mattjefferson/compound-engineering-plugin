@@ -1,0 +1,15 @@
+{
+  "name": "compound-engineering-plugin",
+  "plugins": [
+    {
+      "name": "compound-engineering",
+      "source": {
+        "source": "local",
+        "path": "./plugins/compound-engineering"
+      },
+      "installPolicy": "AVAILABLE",
+      "authPolicy": "ON_INSTALL",
+      "category": "Coding"
+    }
+  ]
+}

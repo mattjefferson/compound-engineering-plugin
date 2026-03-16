@@ -1,0 +1,38 @@
+{
+  "name": "compound-engineering",
+  "version": "2.40.0",
+  "description": "AI-powered development tools for code review, research, design, and workflow automation.",
+  "author": {
+    "name": "Kieran Klaassen",
+    "email": "kieran@every.to",
+    "url": "https://github.com/kieranklaassen"
+  },
+  "homepage": "https://every.to/source-code/my-ai-had-already-fixed-the-code-before-i-saw-it",
+  "repository": "https://github.com/EveryInc/compound-engineering-plugin",
+  "license": "MIT",
+  "keywords": [
+    "coding",
+    "compound-engineering",
+    "code-review",
+    "research",
+    "design",
+    "workflow-automation"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Compound Engineering",
+    "shortDescription": "Code review, research, design, and workflow automation skills for Codex.",
+    "longDescription": "Use Compound Engineering in Codex for planning, implementation support, code review, research, design iteration, and workflow automation using the existing curated skill library.",
+    "developerName": "Every",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/EveryInc/compound-engineering-plugin",
+    "privacyPolicyURL": "https://github.com/EveryInc/compound-engineering-plugin/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/EveryInc/compound-engineering-plugin/blob/main/LICENSE",
+    "defaultPrompt": "Use Compound Engineering to plan, implement, review, or research this coding task."
+  }
+}
