@@ -100,7 +100,7 @@ Core workflow commands use `ce:` prefix to unambiguously identify them as compou
 | `/reproduce-bug` | Reproduce bugs using logs and console |
 | `/resolve_parallel` | Resolve TODO comments in parallel |
 | `/resolve_pr_parallel` | Resolve PR comments in parallel |
-| `/resolve_todo_parallel` | Resolve todos in parallel |
+| `/resolve-todo-parallel` | Resolve todos in parallel |
 | `/triage` | Triage and prioritize issues |
 | `/test-browser` | Run browser tests on PR-affected pages |
 | `/xcode-test` | Build and test iOS apps on simulator |
